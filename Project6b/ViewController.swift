@@ -58,10 +58,11 @@ class ViewController: UIViewController {
             // |: this is the edge of the view
         }
         
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[label1]-[label2]-[label3]-[label4]-[label5]", options: [], metrics: nil, views: viewsDictionary))
+        let metrics = ["labelHeight": 88]
+        
+        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[label1(labelHeight@999)]-[label2(label1)]-[label3(label1)]-[label4(label1)]-[label5(label1)]-(>=10)-|", options: [], metrics: metrics, views: viewsDictionary))
         // - : this means a space, which is 10 points by default but it can be customised.
+        // -(amount)- : dash before and after
     }
-
-
 }
 
